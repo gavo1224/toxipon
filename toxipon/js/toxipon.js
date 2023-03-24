@@ -5,3 +5,4 @@ function manejadorSeleccionarMascota() {
   alert("seleccionaste fuego");
 }
 botonSeleccionarMascota.addEventListener("click", manejadorSeleccionarMascota);
+// hola */
