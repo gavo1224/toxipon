@@ -6,3 +6,4 @@ function manejadorSeleccionarMascota() {
 }
 botonSeleccionarMascota.addEventListener("click", manejadorSeleccionarMascota);
 // hola */
+// no */
