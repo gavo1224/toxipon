@@ -1,20 +1,24 @@
 let ataqueJugador = 0
+let ataqueEnemigo = 0
 
 function ataqueFuego () { 
   let spanAtaqueJugador = document.getElementById("ataque-jugador")
   spanAtaqueJugador.innerHTML = "Fuego🔥"
   ataqueJugador = spanAtaqueJugador
+  manejadorSeleccionarAtaqueEnemigo()
 
 }
 function ataqueAgua () { 
   let spanAtaqueJugador = document.getElementById("ataque-jugador")
   spanAtaqueJugador.innerHTML = "Agua💧"
   ataqueJugador = spanAtaqueJugador
+  manejadorSeleccionarAtaqueEnemigo()
 }
 function ataquePlantas () { 
   let spanAtaqueJugador = document.getElementById("ataque-jugador")
   spanAtaqueJugador.innerHTML = "Plantas🌳"
   ataqueJugador = spanAtaqueJugador
+  manejadorSeleccionarAtaqueEnemigo()
 }
 
 function obtenerNumeroEnRango(min, max) {
@@ -71,6 +75,17 @@ function manejadorSeleccionarMascotaEnemigo() {
   }
 }
 
+function manejadorSeleccionarAtaqueEnemigo(){
+  let numeroAleatorio = obtenerNumeroEnRango(1,3)
+  let spanAtaqueEnemigo = document.getElementById("ataque-enemigo")
 
+  if (numeroAleatorio == 1) {
+    spanAtaqueEnemigo.innerHTML = "Fuego🔥"
+  } else if (numeroAleatorio == 2) {
+    spanAtaqueEnemigo.innerHTML = "Agua💧"
+  } else if (numeroAleatorio == 3) {
+    spanAtaqueEnemigo.innerHTML = "Plantas🌳"
+  }
+}
 
 window.addEventListener("load", iniciarJuego)
