@@ -1,5 +1,5 @@
-let ataqueJugador = 0
-let ataqueEnemigo = 0
+let ataqueJugador 
+let ataqueEnemigo 
 
 function ataqueFuego () { 
   let spanAtaqueJugador = document.getElementById("ataque-jugador")
@@ -63,27 +63,28 @@ function manejadorSeleccionarMascotaJugador(){
 
 function manejadorSeleccionarMascotaEnemigo() {
 
-  let numeroAleatorio = obtenerNumeroEnRango(1,3)
+  let MacotaEnemigoNumeroAleatorio = obtenerNumeroEnRango(1,3)
   let spanMascotaEnemigo = document.getElementById("mascota-enemigo")
-
-  if (numeroAleatorio == 1) {
-    spanMascotaEnemigo.innerHTML = "hipodoge"
-  } else if (numeroAleatorio == 2) {
-    spanMascotaEnemigo.innerHTML = "capipepo"
-  } else if (numeroAleatorio == 3) {
-    spanMascotaEnemigo.innerHTML = "ratigueya"
+  ataqueEnemigo = spanMascotaEnemigo
+  
+  if (MacotaEnemigoNumeroAleatorio == 1) {
+    ataqueEnemigo.innerHTML = "hipodoge"
+  } else if (MacotaEnemigoNumeroAleatorio == 2) {
+    ataqueEnemigo.innerHTML = "capipepo"
+  } else if (MacotaEnemigoNumeroAleatorio == 3) {
+    ataqueEnemigo.innerHTML = "ratigueya"
   }
 }
 
 function manejadorSeleccionarAtaqueEnemigo(){
-  let numeroAleatorio = obtenerNumeroEnRango(1,3)
+  let AtaqueEnemigoNumeroAleatorio = obtenerNumeroEnRango(1,3)
   let spanAtaqueEnemigo = document.getElementById("ataque-enemigo")
 
-  if (numeroAleatorio == 1) {
+  if (AtaqueEnemigoNumeroAleatorio == 1) {
     spanAtaqueEnemigo.innerHTML = "Fuego🔥"
-  } else if (numeroAleatorio == 2) {
+  } else if (AtaqueEnemigoNumeroAleatorio == 2) {
     spanAtaqueEnemigo.innerHTML = "Agua💧"
-  } else if (numeroAleatorio == 3) {
+  } else if (AtaqueEnemigoNumeroAleatorio == 3) {
     spanAtaqueEnemigo.innerHTML = "Plantas🌳"
   }
 }
