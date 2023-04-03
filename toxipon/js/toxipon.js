@@ -1,3 +1,21 @@
+let ataqueJugador = 0
+
+function ataqueFuego () { 
+  let spanAtaqueJugador = document.getElementById("ataque-jugador")
+  spanAtaqueJugador.innerHTML = "Fuego🔥"
+  ataqueJugador = spanAtaqueJugador
+
+}
+function ataqueAgua () { 
+  let spanAtaqueJugador = document.getElementById("ataque-jugador")
+  spanAtaqueJugador.innerHTML = "Agua💧"
+  ataqueJugador = spanAtaqueJugador
+}
+function ataquePlantas () { 
+  let spanAtaqueJugador = document.getElementById("ataque-jugador")
+  spanAtaqueJugador.innerHTML = "Plantas🌳"
+  ataqueJugador = spanAtaqueJugador
+}
 
 function obtenerNumeroEnRango(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -9,7 +27,14 @@ function iniciarJuego(){
   let botonSeleccionarMascotaJugador = document.getElementById("boton-seleccionar-mascota")
   botonSeleccionarMascotaJugador.addEventListener ("click", manejadorSeleccionarMascotaJugador)
 
-}
+  let botonFuego = document.getElementById("boton-fuego")
+  botonFuego.addEventListener ("click", ataqueFuego)
+  let botonAgua = document.getElementById("boton-agua")
+  botonAgua.addEventListener ("click", ataqueAgua)
+  let botonPlantas = document.getElementById("boton-plantas")
+  botonPlantas.addEventListener ("click", ataquePlantas)
+
+} 
 
 function manejadorSeleccionarMascotaJugador(){
 
