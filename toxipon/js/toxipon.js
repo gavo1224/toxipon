@@ -2,22 +2,19 @@ let ataqueJugador
 let ataqueEnemigo 
 
 function ataqueFuego () { 
-  let spanAtaqueJugador = document.getElementById("ataque-jugador")
-  spanAtaqueJugador.innerHTML = "Fuego🔥"
-  ataqueJugador = spanAtaqueJugador
+  ataqueJugador = "fuego"
+  alert (ataqueJugador)
   manejadorSeleccionarAtaqueEnemigo()
 
 }
 function ataqueAgua () { 
-  let spanAtaqueJugador = document.getElementById("ataque-jugador")
-  spanAtaqueJugador.innerHTML = "Agua💧"
-  ataqueJugador = spanAtaqueJugador
+  ataqueJugador = "agua"
+  alert (ataqueJugador)
   manejadorSeleccionarAtaqueEnemigo()
 }
 function ataquePlantas () { 
-  let spanAtaqueJugador = document.getElementById("ataque-jugador")
-  spanAtaqueJugador.innerHTML = "Plantas🌳"
-  ataqueJugador = spanAtaqueJugador
+  ataqueJugador = "plantas"
+  alert (ataqueJugador)
   manejadorSeleccionarAtaqueEnemigo()
 }
 
@@ -65,27 +62,26 @@ function manejadorSeleccionarMascotaEnemigo() {
 
   let MacotaEnemigoNumeroAleatorio = obtenerNumeroEnRango(1,3)
   let spanMascotaEnemigo = document.getElementById("mascota-enemigo")
-  ataqueEnemigo = spanMascotaEnemigo
+  
   
   if (MacotaEnemigoNumeroAleatorio == 1) {
-    ataqueEnemigo.innerHTML = "hipodoge"
+    spanMascotaEnemigo.innerHTML = "hipodoge"
   } else if (MacotaEnemigoNumeroAleatorio == 2) {
-    ataqueEnemigo.innerHTML = "capipepo"
+    spanMascotaEnemigo.innerHTML = "capipepo"
   } else if (MacotaEnemigoNumeroAleatorio == 3) {
-    ataqueEnemigo.innerHTML = "ratigueya"
+    spanMascotaEnemigo.innerHTML = "ratigueya"
   }
 }
 
 function manejadorSeleccionarAtaqueEnemigo(){
   let AtaqueEnemigoNumeroAleatorio = obtenerNumeroEnRango(1,3)
-  let spanAtaqueEnemigo = document.getElementById("ataque-enemigo")
 
   if (AtaqueEnemigoNumeroAleatorio == 1) {
-    spanAtaqueEnemigo.innerHTML = "Fuego🔥"
+    ataqueEnemigo = "Fuego🔥"
   } else if (AtaqueEnemigoNumeroAleatorio == 2) {
-    spanAtaqueEnemigo.innerHTML = "Agua💧"
+    ataqueEnemigo = "Agua💧"
   } else if (AtaqueEnemigoNumeroAleatorio == 3) {
-    spanAtaqueEnemigo.innerHTML = "Plantas🌳"
+    ataqueEnemigo = "Plantas🌳"
   }
 }
 
