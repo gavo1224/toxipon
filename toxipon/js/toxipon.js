@@ -2,26 +2,34 @@ let ataqueJugador
 let ataqueEnemigo 
 
 function ataqueFuego () { 
-  ataqueJugador = "fuego"
-  alert (ataqueJugador)
+  ataqueJugador = "Fuego🔥"
+ 
   manejadorSeleccionarAtaqueEnemigo()
 
 }
 function ataqueAgua () { 
-  ataqueJugador = "agua"
-  alert (ataqueJugador)
+  ataqueJugador = "Agua💧"
+  
   manejadorSeleccionarAtaqueEnemigo()
 }
 function ataquePlantas () { 
-  ataqueJugador = "plantas"
-  alert (ataqueJugador)
+  ataqueJugador = "Plantas🌳"
+  
   manejadorSeleccionarAtaqueEnemigo()
 }
 
 function crearMensajes () {
 
+  //se declara la variable seccionMensajes asignandole como valor el elemento con "id" = "mensajes" el cual es una "seccion" en el html.
+  let seccionMensajes = document.getElementById("mensajes")
+  // se declara una variable y se le da como valor el elemento creado por medio de la funcion .createElement, en este caso un parrafo "p"
+  // se modifica el contenido de este elemento por medio de la propiedad .innerHTML concatenando textos con las variables globales
+  // ataqueJugador y ataqueEnemigo.
   let parrafo = document.createElement ("p")
   parrafo.innerHTML = "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo+", PENDIENTE"
+  // Utilizando el metodo de manipulacion del DOM(funcion) .appendChild() la cual nos permite tomar
+  // elementos creados previamente en Js(parrafo) e incorporarlos a elementos ya existentes en el html(seccionMensajes) 
+  seccionMensajes.appendChild(parrafo)
 }
 
 function obtenerNumeroEnRango(min, max) {
