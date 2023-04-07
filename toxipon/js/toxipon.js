@@ -18,6 +18,12 @@ function ataquePlantas () {
   manejadorSeleccionarAtaqueEnemigo()
 }
 
+function crearMensajes () {
+
+  let parrafo = document.createElement ("p")
+  parrafo.innerHTML = "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo+", PENDIENTE"
+}
+
 function obtenerNumeroEnRango(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -83,6 +89,7 @@ function manejadorSeleccionarAtaqueEnemigo(){
   } else if (AtaqueEnemigoNumeroAleatorio == 3) {
     ataqueEnemigo = "Plantas🌳"
   }
+  crearMensajes ()
 }
 
 window.addEventListener("load", iniciarJuego)
