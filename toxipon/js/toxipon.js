@@ -18,20 +18,6 @@ function ataquePlantas () {
   manejadorSeleccionarAtaqueEnemigo()
 }
 
-function crearMensajes () {
-
-  //se declara la variable seccionMensajes asignandole como valor el elemento con "id" = "mensajes" el cual es una "seccion" en el html.
-  let seccionMensajes = document.getElementById("mensajes")
-  // se declara una variable y se le da como valor el elemento creado por medio de la funcion .createElement, en este caso un parrafo "p"
-  // se modifica el contenido de este elemento por medio de la propiedad .innerHTML concatenando textos con las variables globales
-  // ataqueJugador y ataqueEnemigo.
-  let parrafo = document.createElement ("p")
-  parrafo.innerHTML = "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo+", PENDIENTE"
-  // Utilizando el metodo de manipulacion del DOM(funcion) .appendChild() la cual nos permite tomar
-  // elementos creados previamente en Js(parrafo) e incorporarlos a elementos ya existentes en el html(seccionMensajes) 
-  seccionMensajes.appendChild(parrafo)
-}
-
 function obtenerNumeroEnRango(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -59,11 +45,11 @@ function manejadorSeleccionarMascotaJugador(){
   let spanMascotaJugador = document.getElementById("mascota-jugador")
 
   if(inputHipodoge.checked) {
-    spanMascotaJugador.innerHTML = "hipodoge"
+    spanMascotaJugador.innerHTML = "Hipodoge🦛"
   } else if(inputCapipepo.checked) {
-    spanMascotaJugador.innerHTML = "capipepo"
+    spanMascotaJugador.innerHTML = "Capipepo🦘"
   } else if(inputRatigueya.checked) {
-    spanMascotaJugador.innerHTML = "ratigueya"
+    spanMascotaJugador.innerHTML = "Ratigueya🐀"
   } else {
     alert("no seleccionaste ninguna mascota")
   }
@@ -79,11 +65,11 @@ function manejadorSeleccionarMascotaEnemigo() {
   
   
   if (MacotaEnemigoNumeroAleatorio == 1) {
-    spanMascotaEnemigo.innerHTML = "hipodoge"
+    spanMascotaEnemigo.innerHTML = "Hipodoge🦛"
   } else if (MacotaEnemigoNumeroAleatorio == 2) {
-    spanMascotaEnemigo.innerHTML = "capipepo"
+    spanMascotaEnemigo.innerHTML = "Capipepo🦘"
   } else if (MacotaEnemigoNumeroAleatorio == 3) {
-    spanMascotaEnemigo.innerHTML = "ratigueya"
+    spanMascotaEnemigo.innerHTML = "Ratigueya🐀"
   }
 }
 
@@ -97,7 +83,37 @@ function manejadorSeleccionarAtaqueEnemigo(){
   } else if (AtaqueEnemigoNumeroAleatorio == 3) {
     ataqueEnemigo = "Plantas🌳"
   }
-  crearMensajes ()
+  combate ()
 }
+
+function combate () {
+
+  if(ataqueJugador == ataqueEnemigo) {
+      crearMensajes ("Empataste🐱‍👤")
+  } else if(ataqueJugador == "Fuego🔥" && ataqueEnemigo == "Plantas🌳") {
+       crearMensajes ("Ganaste🐲")
+  } else if(ataqueJugador == "Agua💧" && ataqueEnemigo == "Fuego🔥") {
+       crearMensajes ("Ganaste🐲")
+  } else if(ataqueJugador == "Plantas🌳" && ataqueEnemigo == "Agua💧") {
+       crearMensajes ("Ganaste🐲")
+  } else {
+    crearMensajes ("Perdiste🤡")
+  }
+}
+
+function crearMensajes (resultado) {
+
+  //se declara la variable seccionMensajes asignandole como valor el elemento con "id" = "mensajes" el cual es una "seccion" en el html.
+  let seccionMensajes = document.getElementById("mensajes")
+  // se declara una variable y se le da como valor el elemento creado por medio de la funcion .createElement, en este caso un parrafo "p"
+  // se modifica el contenido de este elemento por medio de la propiedad .innerHTML concatenando textos con las variables globales
+  // ataqueJugador y ataqueEnemigo.
+  let parrafo = document.createElement ("p")
+  parrafo.innerHTML = "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo + " " + resultado
+  // Utilizando el metodo de manipulacion del DOM(funcion) .appendChild() la cual nos permite tomar
+  // elementos creados previamente en Js(parrafo) e incorporarlos a elementos ya existentes en el html(seccionMensajes) 
+  seccionMensajes.appendChild(parrafo)
+}
+
 
 window.addEventListener("load", iniciarJuego)
