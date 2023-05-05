@@ -1,19 +1,26 @@
+// VARIABLES GLOBALES
 let ataqueJugador 
 let ataqueEnemigo 
 
+// CONSTANTES GLOBALES
+const FUEGO = "Fuego🔥";
+const AGUA = "Agua💧"
+const PLANTAS = "Plantas🌳"
+
+
 function ataqueFuego () { 
-  ataqueJugador = "Fuego🔥"
+  ataqueJugador = FUEGO
  
   manejadorSeleccionarAtaqueEnemigo()
 
 }
 function ataqueAgua () { 
-  ataqueJugador = "Agua💧"
+  ataqueJugador = AGUA
   
   manejadorSeleccionarAtaqueEnemigo()
 }
 function ataquePlantas () { 
-  ataqueJugador = "Plantas🌳"
+  ataqueJugador = PLANTAS
   
   manejadorSeleccionarAtaqueEnemigo()
 }
@@ -34,7 +41,6 @@ function iniciarJuego(){
   botonAgua.addEventListener ("click", ataqueAgua)
   let botonPlantas = document.getElementById("boton-plantas")
   botonPlantas.addEventListener ("click", ataquePlantas)
-
 } 
 
 function manejadorSeleccionarMascotaJugador(){
@@ -77,42 +83,59 @@ function manejadorSeleccionarAtaqueEnemigo(){
   let AtaqueEnemigoNumeroAleatorio = obtenerNumeroEnRango(1,3)
 
   if (AtaqueEnemigoNumeroAleatorio == 1) {
-    ataqueEnemigo = "Fuego🔥"
+    ataqueEnemigo = FUEGO
   } else if (AtaqueEnemigoNumeroAleatorio == 2) {
-    ataqueEnemigo = "Agua💧"
+    ataqueEnemigo = AGUA
   } else if (AtaqueEnemigoNumeroAleatorio == 3) {
-    ataqueEnemigo = "Plantas🌳"
+    ataqueEnemigo = PLANTAS
   }
+  
   combate ()
 }
 
 function combate () {
 
+  let resultado;
+
   if(ataqueJugador == ataqueEnemigo) {
-      crearMensajes ("Empataste🐱‍👤")
-  } else if(ataqueJugador == "Fuego🔥" && ataqueEnemigo == "Plantas🌳") {
-       crearMensajes ("Ganaste🐲")
-  } else if(ataqueJugador == "Agua💧" && ataqueEnemigo == "Fuego🔥") {
-       crearMensajes ("Ganaste🐲")
-  } else if(ataqueJugador == "Plantas🌳" && ataqueEnemigo == "Agua💧") {
-       crearMensajes ("Ganaste🐲")
+    resultado = 0;
+  } else if(ataqueJugador == FUEGO && ataqueEnemigo == PLANTAS) {
+    resultado = 1
+  } else if(ataqueJugador == AGUA && ataqueEnemigo == FUEGO) {     
+    resultado = 1
+  } else if(ataqueJugador == PLANTAS && ataqueEnemigo == AGUA) {
+    resultado = 1
   } else {
-    crearMensajes ("Perdiste🤡")
+    resultado = -1
   }
+
+  crearMensaje(armarResultado(resultado));
 }
 
-function crearMensajes (resultado) {
+function crearMensaje (contenido) {
 
-  //se declara la variable seccionMensajes asignandole como valor el elemento con "id" = "mensajes" el cual es una "seccion" en el html.
   let seccionMensajes = document.getElementById("mensajes")
-  // se declara una variable y se le da como valor el elemento creado por medio de la funcion .createElement, en este caso un parrafo "p"
-  // se modifica el contenido de este elemento por medio de la propiedad .innerHTML concatenando textos con las variables globales
-  // ataqueJugador y ataqueEnemigo.
-  let parrafo = document.createElement ("p")
-  parrafo.innerHTML = "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo + " " + resultado
-  // Utilizando el metodo de manipulacion del DOM(funcion) .appendChild() la cual nos permite tomar
-  // elementos creados previamente en Js(parrafo) e incorporarlos a elementos ya existentes en el html(seccionMensajes) 
+ 
+  let parrafo = document.createElement("p")
+
+  parrafo.innerHTML = contenido
+  
   seccionMensajes.appendChild(parrafo)
+}
+
+function armarResultado (codigoResultado) {
+
+  let resultadoCombate;
+
+  if(codigoResultado == 0) {
+    resultadoCombate = "Empataste🐱‍👤";
+  } else if(codigoResultado == 1) {
+    resultadoCombate = "Ganaste🔥🐲"
+  } else {
+    resultadoCombate = "Perdiste🤡"
+  }
+
+  return "Tu atacaste con "+ ataqueJugador +" el enemigo ataco con "+ ataqueEnemigo + " " + resultadoCombate
 }
 
 
